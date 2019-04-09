@@ -13,7 +13,7 @@ rho = 0.997 # Noise
 tau = 0.8 # Binary threshold
 
 
-im = cv2.imread('./data/test0_small_cld.jpg', cv2.IMREAD_GRAYSCALE)
+im = cv2.imread('./data/test0_small.jpg', cv2.IMREAD_GRAYSCALE)
 cv2.imshow("0-Original image", im)
 
 etfImg = cld.EdgeTangentFlow.compute_edge_tangent_flow(im)
