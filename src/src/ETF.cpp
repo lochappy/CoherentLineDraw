@@ -37,15 +37,12 @@ namespace CoherentLine
 
 			flowField = Mat::zeros(src.size(), CV_32FC3);
 
-			//Rotate gradient 90 degree
-			grad_x = -grad_x;
-
 			#pragma omp parallel for
 			for (int i = 0; i < height; i++) {
 				for (int j = 0; j < width; j++) {
 					const float u = grad_x.at<float>(i, j);
 					const float v = grad_y.at<float>(i, j);
-					flowField.at<Vec3f>(i, j) = normalize(Vec3f(u, v, 0));
+					flowField.at<Vec3f>(i, j) = normalize(Vec3f(-v, u, 0)); //rotate 90 degree
 				}
 			}
 
